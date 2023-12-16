@@ -24,8 +24,8 @@ function AuthLinks({status, userName}) {
   if (status === 'unauthenticated') {
     return (
       <>
-        <Link href={'/login'}>Login</Link>
-        <Link href={'/register'} className="bg-primary rounded-full text-white px-8 py-2">
+        <Link href={'/login'} className="font-medium font-konten2">Login</Link>
+        <Link href={'/register'} className="font-konten2 font-medium bg-primary rounded-full text-white px-8 py-2">
           Register
         </Link>
       </>
@@ -44,10 +44,10 @@ export default function Header() {
     userName = userName.split(' ')[0];
   }
   return (
-    <header>
-      <div className="flex items-center md:hidden justify-between">
-        <Link className="text-primary font-semibold text-2xl" href={'/'}>
-          ST PIZZA
+    <header className="font-konten2">
+      <div className="flex items-center md:hidden justify-between font-extralight">
+        <Link className="text-primary font-bold text-2xl font-agbalumo" href={'/'}>
+          Coconut Beach
         </Link>
         <div className="flex gap-8 items-center">
           <Link href={'/cart'} className="relative">
@@ -76,27 +76,31 @@ export default function Header() {
           <AuthLinks status={status} userName={userName} />
         </div>
       )}
-      <div className="hidden md:flex items-center justify-between">
-        <nav className="flex items-center gap-8 text-gray-500 font-semibold">
-          <Link className="text-primary font-semibold text-2xl" href={'/'}>
-            ST PIZZA
-          </Link>
-          <Link href={'/'}>Home</Link>
-          <Link href={'/menu'}>Menu</Link>
-          <Link href={'/#about'}>About</Link>
-          <Link href={'/#contact'}>Contact</Link>
-        </nav>
-        <nav className="flex items-center gap-4 text-gray-500 font-semibold">
-          <AuthLinks status={status} userName={userName} />
-          <Link href={'/cart'} className="relative">
-            <ShoppingCart />
-            {cartProducts?.length > 0 && (
-              <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
-            {cartProducts.length}
-          </span>
-            )}
-          </Link>
-        </nav>
+      <div className="hidden z-10 max-widthfood-o  fixed md:flex items-center">
+        <div className="flex justify-start">
+          <nav className="flex relative items-center gap-8 font-normal font-konten2">
+            <Link className="text-primary font-bold font-agbalumo text-2xl" href={'/'}>
+              Coconut Beach 
+            </Link>
+            <Link href={'/'}>Home</Link>
+            <Link href={'/menu'}>Menu</Link>
+            <Link href={'/#about'}>About</Link>
+            <Link href={'/#contact'}>Contact</Link>
+          </nav>
+        </div>
+        <div className="pl-36">
+          <nav className="flex relative items-center gap-4 font-semibold">
+            <AuthLinks status={status} userName={userName} />
+            <Link href={'/cart'} className="relative">
+              <ShoppingCart />
+              {cartProducts?.length > 0 && (
+                <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
+              {cartProducts.length}
+            </span>
+              )}
+            </Link>
+          </nav>
+        </div>
       </div>
     </header>
   );

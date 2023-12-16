@@ -10,10 +10,9 @@ export default function Home() {
       <HomeMenu />
       <section className="text-center my-16" id="about">
         <SectionHeaders
-          subHeader={'Our story'}
           mainHeader={'About us'}
         />
-        <div className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
+        <div className="font-konten2 max-w-md mx-auto mt-10 flex flex-col gap-4">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni minima odit recusandae. Illum ipsa non repudiandae? Eum ipsam iste quos suscipit tempora? Aperiam esse fugiat inventore laboriosam officiis quam rem!
           </p>
@@ -23,13 +22,39 @@ export default function Home() {
       </section>
       <section className="text-center my-8" id="contact">
         <SectionHeaders
-          subHeader={'Don\'t hesitate'}
           mainHeader={'Contact us'}
         />
-        <div className="mt-8">
-          <a className="text-4xl underline text-gray-500" href="tel:+46738123123">
-            +46 738 123 123
-          </a>
+        <div className="mt-8 font-konten2">
+          <div class="footer-flex-box">
+            <div className="footer-table-info">
+                <h3 className="h3-title">open hours</h3>
+                <ul>
+                    <li><i className="uil uil-clock"></i> Mon-Thurs : 9am - 22pm</li>
+                    <li><i className="uil uil-clock"></i> Fri-Sun : 11am - 22pm</li>
+                </ul>
+            </div>
+            <div className="footer-menu food-nav-menu">
+                <h3 className="h3-title">Links</h3>
+                <ul className="column-2">
+                    <li>
+                        <a href="#home" className="footer-active-menu">Home</a>
+                    </li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div className="footer-menu">
+                <h3 class="h3-title">Company</h3>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+          </div>
         </div>
       </section>
     </>

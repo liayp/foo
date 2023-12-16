@@ -13,6 +13,7 @@ export default function EditableImage({link, setLink}) {
         method: 'POST',
         body: data,
       }).then(response => {
+        console.log(response);
         if (response.ok) {
           return response.json().then(link => {
             setLink(link);
@@ -40,8 +41,8 @@ export default function EditableImage({link, setLink}) {
         </div>
       )}
       <label>
-        <input type="file" className="hidden" onChange={handleFileChange} />
-        <span className="block border border-gray-300 rounded-lg p-2 text-center cursor-pointer">Change image</span>
+        <input type="file" className="hidden" onChange={handleFileChange} accept="image/*" />
+        <span className="block border border-gray-300 rounded-lg p-2 text-center cursor-pointer">Change Image</span>
       </label>
     </>
   );

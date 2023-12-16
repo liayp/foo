@@ -23,9 +23,8 @@ export default function HomeMenu() {
           <Image src={'/sallad2.png'} width={107} height={195} alt={'sallad'} />
         </div>
       </div>
-      <div className="text-center mb-4">
+      <div className="text-center mb-14">
         <SectionHeaders
-          subHeader={'check out'}
           mainHeader={'Our Best Sellers'} />
       </div>
       <div className="grid sm:grid-cols-3 gap-4">

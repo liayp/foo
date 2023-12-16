@@ -17,8 +17,8 @@ export default function LoginPage() {
     setLoginInProgress(false);
   }
   return (
-    <section className="mt-8">
-      <h1 className="text-center text-primary text-4xl mb-4">
+    <section className="mt-8 md:mt-24">
+      <h1 className="text-center text-primary  font-agbalumo font-bold text-5xl mb-10">
         Login
       </h1>
       <form className="max-w-xs mx-auto" onSubmit={handleFormSubmit}>

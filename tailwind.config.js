@@ -7,8 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        poppins: "'Poppins', sans-serif",
+        roboto: "'Roboto', sans-serif",
+        agbalumo: "'Agbalumo'",
+        konten: "'edu tas beginner'",
+        konten2: "'Oswald'"
+      },
       colors: {
-        primary: '#f13a01',
+        primary: '#eab308',
       },
     },
   },
