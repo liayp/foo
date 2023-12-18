@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Hero from "@/components/layout/Hero";
 import HomeMenu from "@/components/layout/HomeMenu";
 import SectionHeaders from "@/components/layout/SectionHeaders";
+import { isAbsolute } from "path/posix";
 
 export default function Home() {
   return (
@@ -10,49 +11,47 @@ export default function Home() {
       <HomeMenu />
       <section className="text-center my-16" id="about">
         <SectionHeaders
-          mainHeader={'About us'}
+          mainHeader={'Our Location'}
         />
-        <div className="font-konten2 max-w-md mx-auto mt-10 flex flex-col gap-4">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni minima odit recusandae. Illum ipsa non repudiandae? Eum ipsam iste quos suscipit tempora? Aperiam esse fugiat inventore laboriosam officiis quam rem!
-          </p>
-          <p>At consectetur delectus ducimus est facere iure molestias obcaecati quaerat vitae voluptate? Aspernatur dolor explicabo iste minus molestiae pariatur provident quibusdam saepe?</p>
-          <p>Laborum molestias neque nulla obcaecati odio quia quod reprehenderit sit vitae voluptates? Eos, tenetur.</p>
+        <div className="max-w-md mx-auto mt-10 flex flex-col gap-4">
+        
+          <iframe src="https://www.google.com/maps/dir//Cafe+%26+Resto+Coconut+Beach/data=!4m8!4m7!1m0!1m5!1m1!1s0x327ea58584878f7b:0xe986a501ebdd25a8!2m2!1d123.27139369999999!2d0.9156591"></iframe>
+              
         </div>
       </section>
       <section className="text-center my-8" id="contact">
         <SectionHeaders
           mainHeader={'Contact us'}
         />
-        <div className="mt-8 font-konten2">
-          <div class="footer-flex-box">
-            <div className="footer-table-info">
-                <h3 className="h3-title">open hours</h3>
-                <ul>
-                    <li><i className="uil uil-clock"></i> Mon-Thurs : 9am - 22pm</li>
-                    <li><i className="uil uil-clock"></i> Fri-Sun : 11am - 22pm</li>
-                </ul>
+        <div className="mt-14 text-left">
+          <div className="footer-flex-box flex flex-wrap">          
+            <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                <h2 className="text-lg font-serif font-extrabold mb-4">Our Location</h2>
+                <p className="text-slate-800">Boroko Utara</p>
+                <p className="text-slate-800">Jalan Trans Sulawesi</p>
+                <p className="text-slate-800">Kaidipang </p> 
+                <p className="text-slate-800">North Bolaang Mongondow Regency</p>
+                <p className="text-slate-800">North Sulawesi 95765</p>
             </div>
-            <div className="footer-menu food-nav-menu">
-                <h3 className="h3-title">Links</h3>
-                <ul className="column-2">
-                    <li>
-                        <a href="#home" className="footer-active-menu">Home</a>
-                    </li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                <h2 className="text-lg font-serif font-extrabold mb-4">Connect With Us</h2>
+                <div className="flex space-x-4">
+                    <a href="#" className="text-white hover:text-gray-400 transition duration-300">
+                      
+                    </a>
+                    <a href="#" className="text-white hover:text-gray-400 transition duration-300">
+                        
+                    </a>
+                    <a href="#" className="text-white hover:text-gray-400 transition duration-300">
+                      
+                    </a>
+                </div>
             </div>
-            <div className="footer-menu">
-                <h3 class="h3-title">Company</h3>
-                <ul>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                </ul>
+            <div className="w-full md:w-1/3">
+                <h2 className="text-lg font-serif font-extrabold mb-4">Operating Hours</h2>
+                <p className="text-slate-800">Monday - Friday: 9 AM - 6 PM</p>
+                <p className="text-slate-800">Saturday: 10 AM - 4 PM</p>
+                <p className="text-slate-800">Sunday: Closed</p>
             </div>
           </div>
         </div>

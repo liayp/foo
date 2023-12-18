@@ -11,7 +11,7 @@ export default function AddToCartButton({
           targetLeft={'95%'}
           src={image}>
           <div onClick={onClick}>
-            Add to cart ${basePrice}
+            Add to cart Rp. {basePrice}
           </div>
         </FlyingButton>
       </div>
@@ -21,9 +21,9 @@ export default function AddToCartButton({
     <button
       type="button"
       onClick={onClick}
-      className="mt-4 bg-primary text-white rounded-full px-8 py-2"
+      className="mt-4 bg-primary hover:bg-yellow-600 text-white rounded-full px-8 py-2"
     >
-      <span>Add to cart (from ${basePrice})</span>
+      <span>Add to cart ({basePrice})</span>
     </button>
   );
 }

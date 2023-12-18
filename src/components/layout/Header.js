@@ -76,14 +76,14 @@ export default function Header() {
           <AuthLinks status={status} userName={userName} />
         </div>
       )}
-      <div className="hidden z-10 max-widthfood-o  fixed md:flex items-center">
+      <div className="hidden z-10 max-widthfood-o fixed md:flex items-center">
         <div className="flex justify-start">
           <nav className="flex relative items-center gap-8 font-normal font-konten2">
             <Link className="text-primary font-bold font-agbalumo text-2xl" href={'/'}>
               Coconut Beach 
             </Link>
             <Link href={'/'}>Home</Link>
-            <Link href={'/menu'}>Menu</Link>
+            <Link href={'/#menu'}>Menu</Link>
             <Link href={'/#about'}>About</Link>
             <Link href={'/#contact'}>Contact</Link>
           </nav>

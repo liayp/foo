@@ -100,7 +100,7 @@ export default function MenuItem(menuItem) {
                         onChange={ev => handleExtraThingClick(ev, extraThing)}
                         checked={selectedExtras.map(e => e._id).includes(extraThing._id)}
                         name={extraThing.name} />
-                      {extraThing.name} +${extraThing.price}
+                      {extraThing.name} +Rp. {extraThing.price}
                     </label>
                   ))}
                 </div>
@@ -111,7 +111,7 @@ export default function MenuItem(menuItem) {
                 src={image}>
                 <div className="primary sticky bottom-2"
                      onClick={handleAddToCartButtonClick}>
-                  Add to cart ${selectedPrice}
+                  Add to cart Rp. {selectedPrice}
                 </div>
               </FlyingButton>
               <button

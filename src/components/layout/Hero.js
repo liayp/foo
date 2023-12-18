@@ -13,12 +13,12 @@ export default function Hero() {
         Grocify offer a wide range of products, including fresh products, meats, dairy, baked goods and non-perishable items.
         </p>
         <div className="flex gap-4 text-sm">
-          <button className="flex justify-center bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 uppercase items-center gap-2 text-white px-4 py-2 rounded-full">
+          <button href="{'/menu'}" className="flex justify-center bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 uppercase items-center gap-2 text-white px-4 py-2 rounded-full">
             Order now
             <Right />
           </button>
-          <button className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold">
-            Learn more
+          <button className="flex justify-center bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 uppercase items-center gap-2 text-white px-4 py-2 rounded-full">
+            Book A Table
             <Right />
           </button>
         </div>

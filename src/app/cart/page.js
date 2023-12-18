@@ -1,11 +1,9 @@
 'use client';
 import {CartContext, cartProductPrice} from "@/components/AppContext";
-import Trash from "@/components/icons/Trash";
 import AddressInputs from "@/components/layout/AddressInputs";
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import CartProduct from "@/components/menu/CartProduct";
 import {useProfile} from "@/components/UseProfile";
-import Image from "next/image";
 import {useContext, useEffect, useState} from "react";
 import toast from "react-hot-toast";
 
@@ -21,6 +19,23 @@ export default function CartPage() {
       }
     }
   }, []);
+
+  useEffect(() => {
+    const snapScript = "https://app.sandbox.midtrans.com/snap/snap.js"
+    const clientKey = process.env.MIDTRANS_CLIENT_KEY
+    const script = document.createElement('script')
+    script.src = snapScript
+    script.setAttribute('data_client_key', clientKey),
+    script.async = true
+
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+
+  }, []);
+
 
   useEffect(() => {
     if (profileData?.city) {
@@ -65,6 +80,9 @@ export default function CartPage() {
       });
     });
 
+    const requestData = await response.json()
+    window.snap.pay(requestData.midtransTransaction)
+
     await toast.promise(promise, {
       loading: 'Preparing your order...',
       success: 'Redirecting to payment...',
@@ -96,18 +114,18 @@ export default function CartPage() {
               key={index}
               product={product}
               onRemove={removeCartProduct}
+              index={index}
             />
           ))}
           <div className="py-2 pr-16 flex justify-end items-center">
             <div className="text-gray-500">
               Subtotal:<br />
-              Delivery:<br />
               Total:
             </div>
-            <div className="font-semibold pl-2 text-right">
-              ${subtotal}<br />
-              $5<br />
-              ${subtotal + 5}
+            <div className="font-medium pl-2 text-right">
+              {subtotal}<br />
+              5000<br />
+              {subtotal + 5000}
             </div>
           </div>
         </div>
@@ -118,7 +136,7 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">Pay ${subtotal+5}</button>
+            <button type="submit">Pay {subtotal+5000}</button>
           </form>
         </div>
       </div>

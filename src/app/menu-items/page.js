@@ -32,15 +32,15 @@ export default function MenuItemsPage() {
       <UserTabs isAdmin={true} />
       <div className="mt-8">
         <Link
-          className="button flex"
+          className="button flex bg-yellow-400"
           href={'/menu-items/new'}>
-          <span>Crete new menu item</span>
+          <span>Add menu item</span>
           <Right />
         </Link>
       </div>
       <div>
-        <h2 className="text-sm text-gray-500 mt-8">Edit menu item:</h2>
-        <div className="grid grid-cols-3 gap-2">
+        <h2 className="text-sm text-gray-700 mt-8 mb-3">Edit menu item:</h2>
+        <div className="grid grid-cols-4 gap-2">
           {menuItems?.length > 0 && menuItems.map(item => (
             <Link
               key={item._id}
@@ -49,10 +49,10 @@ export default function MenuItemsPage() {
             >
               <div className="relative">
                 <Image
-                  className="rounded-md"
-                  src={item.image} alt={''} width={200} height={200} />
+                  className="rounded-lg"
+                  src={item.image} alt={''} width={150} height={150} />
               </div>
-              <div className="text-center">
+              <div className="text-center mt-2 font-agbalumo font-semibold text-yellow-600">
                 {item.name}
               </div>
             </Link>

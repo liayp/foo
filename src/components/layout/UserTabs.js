@@ -40,6 +40,12 @@ export default function UserTabs({isAdmin}) {
       >
         Orders
       </Link>
+      <Link
+        className={path === '/reservation' ? 'active' : ''}
+        href={'/reservation'}
+      >
+        Reservation
+      </Link>
     </div>
   );
 }
