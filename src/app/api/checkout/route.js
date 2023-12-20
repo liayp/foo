@@ -29,8 +29,18 @@ export async function POST(req) {
   for (const cartProduct of cartProducts) {
     const productInfo = await MenuItem.findById(cartProduct._id);
     let productPrice = productInfo.basePrice;
-    // ... (similar to the Stripe code for calculating productPrice)
-    
+
+    // Tambahkan harga bahan tambahan ekstra
+    console.log(cartProduct)
+    for (const extra of cartProduct.extras) {
+      productPrice += extra.price;
+    }
+
+    // Tambahkan harga variasi ukuran
+    if (cartProduct.size) {
+      productPrice += cartProduct.size.price;
+    }
+
     const productName = cartProduct.name;
 
     midtransItems.push({

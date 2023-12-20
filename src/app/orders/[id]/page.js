@@ -36,7 +36,7 @@ export default function OrderPage() {
   }
 
   return (
-    <section className="max-w-2xl mx-auto mt-8">
+    <section className="max-w-2xl mx-auto md:mt-20">
       <div className="text-center">
         <SectionHeaders mainHeader="Your order" />
         <div className="mt-4 mb-8">
@@ -54,15 +54,9 @@ export default function OrderPage() {
               <CartProduct key={product._id} product={product} />
             ))}
             <div className="text-right py-2 text-gray-500">
-              Subtotal:
-              <span className="text-black font-bold inline-block w-8">${subtotal}</span>
-              <br />
-              Delivery:
-              <span className="text-black font-bold inline-block w-8">$5</span>
-              <br />
-              Total:
-              <span className="text-black font-bold inline-block w-8">
-                ${subtotal + 5}
+              Total: 
+              <span className="pl-4 text-black font-bold inline-block">
+                Rp. {subtotal}
               </span>
             </div>
           </div>

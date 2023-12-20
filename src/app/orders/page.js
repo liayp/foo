@@ -1,10 +1,12 @@
 'use client';
-import SectionHeaders from "@/components/layout/SectionHeaders";
+
+import Details from "@/components/icons/Details";
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
 import {dbTimeForHuman} from "@/libs/datetime";
 import Link from "next/link";
 import {useEffect, useState} from "react";
+
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -47,18 +49,18 @@ export default function OrdersPage() {
               </div>
               <div className="grow">
                 <div className="flex gap-2 items-center mb-1">
-                  <div className="grow">{order.userEmail}</div>
+                  <div className="grow text-gray-500 text-sm">{order.userEmail}</div>
                   <div className="text-gray-500 text-sm">{dbTimeForHuman(order.createdAt)}</div>
                 </div>
-                <div className="text-gray-500 text-xs">
-                  {order.cartProducts.map(p => p.name).join(', ')}
+                <div className="flex gap-2 items-center mb-1">
+                  <div className="grow text-gray-500 text-sm">{order.cartProducts.map(p => p.name).join(', ')}</div>
+                  <div className="text-gray-500 flex justify-center text-sm">
+                    <Link href={"/orders/"+order._id} className="relative">
+                      <Details />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="justify-end flex gap-2 items-center whitespace-nowrap">
-              <Link href={"/orders/"+order._id} className="button">
-                Show order
-              </Link>
             </div>
           </div>
         ))}

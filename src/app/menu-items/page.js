@@ -1,15 +1,15 @@
 'use client';
 import Right from "@/components/icons/Right";
 import UserTabs from "@/components/layout/UserTabs";
-import {useProfile} from "@/components/UseProfile";
+import { useProfile } from "@/components/UseProfile";
 import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function MenuItemsPage() {
 
   const [menuItems, setMenuItems] = useState([]);
-  const {loading, data} = useProfile();
+  const { loading, data } = useProfile();
 
   useEffect(() => {
     fetch('/api/menu-items').then(res => {
@@ -34,7 +34,7 @@ export default function MenuItemsPage() {
         <Link
           className="button flex bg-yellow-400"
           href={'/menu-items/new'}>
-          <span>Add menu item</span>
+          <span className="text-white">Add menu item</span>
           <Right />
         </Link>
       </div>
@@ -44,7 +44,7 @@ export default function MenuItemsPage() {
           {menuItems?.length > 0 && menuItems.map(item => (
             <Link
               key={item._id}
-              href={'/menu-items/edit/'+item._id}
+              href={'/menu-items/edit/' + item._id}
               className="bg-gray-200 rounded-lg p-4"
             >
               <div className="relative">

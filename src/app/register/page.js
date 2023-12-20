@@ -30,7 +30,7 @@ export default function RegisterPage() {
   }
   return (
     <section className="mt-8 md:mt-24">
-      <h1 className="text-center text-primary text-4xl mb-4">
+      <h1 className="text-center text-primary  font-agbalumo font-bold text-5xl mb-10">
         Register
       </h1>
       {userCreated && (

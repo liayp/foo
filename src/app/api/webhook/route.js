@@ -1,29 +1,36 @@
-import {Order} from "@/models/Order";
-
-const stripe = require('stripe')(process.env.STRIPE_SK);
+const midtransClient = require('midtrans-client');
+const { Order } = require('@/models/Order');
 
 export async function POST(req) {
-  const sig = req.headers.get('stripe-signature');
-  let event;
-
   try {
-    const reqBuffer = await req.text();
-    const signSecret = process.env.STRIPE_SIGN_SECRET;
-    event = stripe.webhooks.constructEvent(reqBuffer, sig, signSecret);
-  } catch (e) {
-    console.error('stripe error');
-    console.log(e);
-    return Response.json(e, {status: 400});
-  }
+    const requestBody = await req.json();
+    const orderId = requestBody?.orderId;
+    const paymentStatus = requestBody?.payment_status;
 
-  if (event.type === 'checkout.session.completed') {
-    console.log(event);
-    const orderId = event?.data?.object?.metadata?.orderId;
-    const isPaid = event?.data?.object?.payment_status === 'paid';
-    if (isPaid) {
-      await Order.updateOne({_id:orderId}, {paid:true});
+    if (!orderId || !paymentStatus) {
+      console.error('Invalid payload from Midtrans');
+      return Response.json('Invalid payload from Midtrans', { status: 400 });
     }
-  }
 
-  return Response.json('ok', {status: 200});
+    // Handle the payment status from Midtrans
+    if (paymentStatus === 'pending') {
+      console.log('Payment is pending');
+      // Handle pending status if needed
+    } else if (paymentStatus === 'settlement') {
+      console.log('Payment is settled');
+      // Handle settled status, for example, mark the order as paid
+      await Order.updateOne({ _id: orderId }, { paid: true });
+    } else if (paymentStatus === 'deny') {
+      console.log('Payment is denied');
+      // Handle denied status if needed
+    } else {
+      console.log('Unknown payment status');
+      // Handle other payment statuses if needed
+    }
+
+    return Response.json('ok', { status: 200 });
+  } catch (error) {
+    console.error('Midtrans webhook error', error);
+    return Response.json('Internal Server Error', { status: 500 });
+  }
 }

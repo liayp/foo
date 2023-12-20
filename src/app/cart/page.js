@@ -1,16 +1,16 @@
 'use client';
-import {CartContext, cartProductPrice} from "@/components/AppContext";
+import { CartContext, cartProductPrice } from "@/components/AppContext";
 import AddressInputs from "@/components/layout/AddressInputs";
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import CartProduct from "@/components/menu/CartProduct";
-import {useProfile} from "@/components/UseProfile";
-import {useContext, useEffect, useState} from "react";
+import { useProfile } from "@/components/UseProfile";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function CartPage() {
-  const {cartProducts,removeCartProduct} = useContext(CartContext);
+  const { cartProducts, removeCartProduct } = useContext(CartContext);
   const [address, setAddress] = useState({});
-  const {data:profileData} = useProfile();
+  const { data: profileData } = useProfile();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -26,7 +26,7 @@ export default function CartPage() {
     const script = document.createElement('script')
     script.src = snapScript
     script.setAttribute('data_client_key', clientKey),
-    script.async = true
+      script.async = true
 
     document.body.appendChild(script)
 
@@ -39,7 +39,7 @@ export default function CartPage() {
 
   useEffect(() => {
     if (profileData?.city) {
-      const {phone, streetAddress, city, postalCode, country} = profileData;
+      const { phone, streetAddress, city, postalCode, country } = profileData;
       const addressFromProfile = {
         phone,
         streetAddress,
@@ -56,7 +56,7 @@ export default function CartPage() {
     subtotal += cartProductPrice(p);
   }
   function handleAddressChange(propName, value) {
-    setAddress(prevAddress => ({...prevAddress, [propName]:value}));
+    setAddress(prevAddress => ({ ...prevAddress, [propName]: value }));
   }
   async function proceedToCheckout(ev) {
     ev.preventDefault();
@@ -65,7 +65,7 @@ export default function CartPage() {
     const promise = new Promise((resolve, reject) => {
       fetch('/api/checkout', {
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           address,
           cartProducts,
@@ -92,7 +92,7 @@ export default function CartPage() {
 
   if (cartProducts?.length === 0) {
     return (
-      <section className="mt-8 text-center">
+      <section className="mt-24 text-center">
         <SectionHeaders mainHeader="Cart" />
         <p className="mt-4">Your shopping cart is empty 😔</p>
       </section>
@@ -100,7 +100,7 @@ export default function CartPage() {
   }
 
   return (
-    <section className="mt-8">
+    <section className="mt-24">
       <div className="text-center">
         <SectionHeaders mainHeader="Cart" />
       </div>
@@ -119,13 +119,10 @@ export default function CartPage() {
           ))}
           <div className="py-2 pr-16 flex justify-end items-center">
             <div className="text-gray-500">
-              Subtotal:<br />
               Total:
             </div>
             <div className="font-medium pl-2 text-right">
-              {subtotal}<br />
-              5000<br />
-              {subtotal + 5000}
+              {subtotal}
             </div>
           </div>
         </div>
@@ -136,7 +133,7 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">Pay {subtotal+5000}</button>
+            <button type="submit">Pay {subtotal}</button>
           </form>
         </div>
       </div>
