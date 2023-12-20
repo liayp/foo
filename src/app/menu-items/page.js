@@ -32,7 +32,7 @@ export default function MenuItemsPage() {
       <UserTabs isAdmin={true} />
       <div className="mt-8">
         <Link
-          className="button flex bg-yellow-400"
+          className="button flex bg-yellow-400 border-none"
           href={'/menu-items/new'}>
           <span className="text-white">Add menu item</span>
           <Right />
@@ -45,14 +45,14 @@ export default function MenuItemsPage() {
             <Link
               key={item._id}
               href={'/menu-items/edit/' + item._id}
-              className="bg-gray-200 rounded-lg p-4"
+              className="bg-gray-200 hover:bg-gray-300 rounded-lg p-4"
             >
               <div className="relative">
                 <Image
                   className="rounded-lg"
                   src={item.image} alt={''} width={150} height={150} />
               </div>
-              <div className="text-center mt-2 font-agbalumo font-semibold text-yellow-600">
+              <div className="text-center mt-2 font-agbalumo font-semibold text-yellow-500">
                 {item.name}
               </div>
             </Link>

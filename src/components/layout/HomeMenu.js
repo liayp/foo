@@ -35,19 +35,19 @@ export default function MenuPage() {
         <SectionHeaders
           mainHeader={'Our Menus'} />
       </div>
-      <div className="text-center mb-10 font-serif font-extralight px-4">
+      <div className="text-center mb-10 font-serif font-extralight">
         {categories?.length > 0 && categories.map(c => (
           <span
             key={c._id}
-            className={`mr-4 cursor-pointer ${selectedCategory === c._id ? 'font-bold border-b-2 border-yellow-600' : ''}`}
+            className={`mr-7 cursor-pointer ${selectedCategory === c._id ? 'font-bold border-b-2 border-yellow-600' : ''}`}
             onClick={() => handleCategoryClick(c._id)}
           >
             {c.name}
           </span>
         ))}
       </div>
-      
-      <div className="grid sm:grid-cols-3 gap-4 mt-6 mb-12">
+
+      <div className="grid sm:grid-cols-3 gap-4 my-5 md:my-8">
         {(!selectedCategory ? bestSellers : menuItems.filter(item => item.category === selectedCategory))
           .map(item => (
             <MenuItem key={item._id} {...item} />
@@ -87,10 +87,10 @@ export default function MenuPage() {
 //           <Image src={'/sallad2.png'} width={107} height={195} alt={'sallad'} />
 //         </div>
 //       </div>
-      // <div className="text-center mb-14">
-      //   <SectionHeaders
-      //     mainHeader={'Our Menus'} />
-      // </div>
+// <div className="text-center mb-14">
+//   <SectionHeaders
+//     mainHeader={'Our Menus'} />
+// </div>
 //       <div className="grid sm:grid-cols-3 gap-4">
 //         {bestSellers?.length > 0 && bestSellers.map(item => (
 //           <MenuItem key={item._id} {...item} />

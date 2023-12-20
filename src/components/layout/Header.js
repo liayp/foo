@@ -71,35 +71,35 @@ export default function Header() {
           className="md:hidden p-4 bg-gray-200 rounded-lg mt-2 flex flex-col gap-2 text-center">
           <Link href={'/'}>Home</Link>
           <Link href={'/menu'}>Menu</Link>
-          <Link href={'/#about'}>About</Link>
           <Link href={'/#contact'}>Contact</Link>
           <AuthLinks status={status} userName={userName} />
         </div>
       )}
-      <div className="hidden z-10 max-widthfood-o fixed md:flex items-center">
-        <div className="flex justify-start">
-          <nav className="flex relative items-center gap-8 font-normal">
-            <Link className="text-primary font-bold font-agbalumo text-2xl" href={'/'}>
-              Coconut Beach
-            </Link>
-            <Link href={'/'}>Home</Link>
-            <Link href={'/#menu'}>Menu</Link>
-            <Link href={'/#about'}>About</Link>
-            <Link href={'/#contact'}>Contact</Link>
-          </nav>
-        </div>
-        <div className="pl-24">
-          <nav className="flex relative items-center gap-4 font-semibold">
-            <AuthLinks status={status} userName={userName} />
-            <Link href={'/cart'} className="relative">
-              <ShoppingCart />
-              {cartProducts?.length > 0 && (
-                <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
-                  {cartProducts.length}
-                </span>
-              )}
-            </Link>
-          </nav>
+      <div className="fixed z-10 top-0 left-0 right-0 bg-white shadow-lg py-4 justify-center hidden md:flex">
+        <div className="hidden max-widthfood-o md:flex items-center">
+          <div className="flex justify-start">
+            <nav className="flex relative items-center gap-8 font-normal">
+              <Link className="text-primary font-bold font-agbalumo text-2xl" href={'/'}>
+                Coconut Beach
+              </Link>
+              <Link href={'/'}>Home</Link>
+              <Link href={'/#menu'}>Menu</Link>
+              <Link href={'/#contact'}>Contact</Link>
+            </nav>
+          </div>
+          <div className="pl-24">
+            <nav className="flex relative items-center gap-4 font-semibold">
+              <AuthLinks status={status} userName={userName} />
+              <Link href={'/cart'} className="relative">
+                <ShoppingCart />
+                {cartProducts?.length > 0 && (
+                  <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
+                    {cartProducts.length}
+                  </span>
+                )}
+              </Link>
+            </nav>
+          </div>
         </div>
       </div>
     </header>
