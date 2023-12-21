@@ -2,7 +2,7 @@ import { writeFile } from 'fs/promises';
 import uniqid from 'uniqid';
 
 export async function POST(req) {
-  const data =  await req.formData();
+  const data = await req.formData();
   if (data.get('file')) {
     // upload the file
     const file = data.get('file');
@@ -17,7 +17,7 @@ export async function POST(req) {
     await writeFile(path, buffer);
 
 
-    const link = 'http://localhost:3000/upload/'+newFileName;
+    const link = 'http://food-coach.vercel.app/upload/' + newFileName;
     return Response.json(link);
   }
   return Response.json(true);
