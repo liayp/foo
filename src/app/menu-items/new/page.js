@@ -2,21 +2,21 @@
 import Left from "@/components/icons/Left";
 import MenuItemForm from "@/components/layout/MenuItemForm";
 import UserTabs from "@/components/layout/UserTabs";
-import {useProfile} from "@/components/UseProfile";
+import { useProfile } from "@/components/UseProfile";
 import Link from "next/link";
-import {redirect} from "next/navigation";
-import {useState} from "react";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function NewMenuItemPage() {
 
   const [redirectToItems, setRedirectToItems] = useState(false);
-  const {loading, data} = useProfile();
+  const { loading, data } = useProfile();
 
   async function handleFormSubmit(ev, data) {
     ev.preventDefault();
     const savingPromise = new Promise(async (resolve, reject) => {
-      const response = await fetch('/api/menu-items', {
+      const response = await fetch('/menu-items', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
