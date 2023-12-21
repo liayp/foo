@@ -17,7 +17,7 @@ export async function POST(req) {
     await writeFile(path, buffer);
 
 
-    const link = 'http://localhost:3000/upload/' + newFileName;
+    const link = '/upload/' + newFileName;
     return Response.json(link);
   }
   return Response.json(true);
